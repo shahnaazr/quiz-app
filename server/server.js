@@ -4,6 +4,21 @@ const axios = require("axios");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "OK" });
+});
+
+app.get("/api-token", async (req, res) => {
+  try {
+    const response = await axios.get("https://opentdb.com/api_token.php?command=request");
+    const { token } = response.data;
+    res.json({ token });
+  } catch (error) {
+    console.error("Error requesting API token:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.get("/categories", async (req, res) => {
   try {
     const response = await axios.get("https://opentdb.com/api_category.php");

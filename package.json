@@ -4,6 +4,9 @@
   "description": "App description...",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "cd server && node server.js",
+    "start:client": "cd client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/shahnaazr/quiz-app/issues"
   },
-  "homepage": "https://github.com/shahnaazr/quiz-app#readme"
+  "homepage": "https://github.com/shahnaazr/quiz-app#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }

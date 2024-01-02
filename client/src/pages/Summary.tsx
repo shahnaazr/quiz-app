@@ -35,11 +35,13 @@ export function Summary() {
     <div className="summary">
       <h1>Score:</h1>
       <h2>8/10</h2>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <div className="cards">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   );
 }

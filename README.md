@@ -72,5 +72,3 @@ Run the above command and test api routes in your browser.
 =======
 
 # quiz app
-
-> > > > > > > main

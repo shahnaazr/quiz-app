@@ -52,3 +52,22 @@
   color: var(--navy);
   font-family: "Cattino";
 }
+
+.card {
+  padding: 1.5em;
+  border: 6px solid var(--red);
+  max-width: 15.625em;
+  min-width: 11.25em;
+  border-radius: 7px;
+  background: var(--yellow);
+  margin-bottom: 1em;
+  box-shadow: 0 4px 8px 0 rgb(13, 59, 102, 0.4);
+  transition: 0.3s;
+  margin: 0.5em;
+}
+
+.card__text {
+  color: var(--navy);
+  font-size: 1.7rem;
+  margin: 0.2em;
+}

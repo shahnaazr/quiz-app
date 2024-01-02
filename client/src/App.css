@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+.header__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header__title {
+  color: var(--navy);
+  font-family: "Cattino";
+}

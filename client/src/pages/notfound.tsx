@@ -1,6 +1,6 @@
 const NotFound: React.FC = () => (
   <>
-    <h1>NotFound Page</h1>
+    <h1>Not Found Page</h1>
   </>
 );
 

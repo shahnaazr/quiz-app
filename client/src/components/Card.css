@@ -1,0 +1,34 @@
+:root {
+  --blueBG: #171c49;
+  --pinkBG: #8d3478;
+  --yellowTXT: #f3f2c0;
+  --whiteTXT: #ffffff;
+}
+
+.card {
+  /*   border: 1px solid black;
+  height: 15em;
+  margin-top: 100px;
+  width: 90%;
+  align-self: center;
+  background-color: white;
+  color: black;
+  border-radius: 10px; */
+
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 10em;
+  padding: 1em;
+
+  margin-top: 100px;
+
+  background-color: var(--pinkBG);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: var(--yellowTXT);
+}

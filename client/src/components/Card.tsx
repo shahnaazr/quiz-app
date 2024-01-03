@@ -1,22 +1,26 @@
 import React from "react";
 import "./Card.css";
-import { QuizData } from "../types/data.types";
-
-//todo: Get question and answer from context/obj
+import { QuizData } from "../types/quizData.types";
 
 interface MyComponentProps {
-  data: QuizData;
+  quizData: QuizData;
 }
 
-export const Card: React.FC<MyComponentProps> = ({ data }) => {
+export const Card: React.FC<MyComponentProps> = ({ quizData }) => {
+  function answeredCorrect() {
+    return quizData.answered == quizData.correct_answer ? "✅" : "❌";
+  }
+
   return (
     <div className="card">
       <div className="card-question">
-        <h2>Question: {data.question}</h2>
+        <h2>Question: {quizData.question}</h2>
       </div>
-      <br />
       <div className="card-answer">
-        <h2>Correct Answer: {data.correct_answer}</h2>
+        <h2>
+          Correct Answer: {quizData.correct_answer}
+          {answeredCorrect()}
+        </h2>
       </div>
     </div>
   );

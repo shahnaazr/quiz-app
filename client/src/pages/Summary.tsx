@@ -1,9 +1,10 @@
 import { Card } from "../components/Card";
-import { TotalScore } from "../components/Score";
+import { SummaryInfo } from "../components/SummaryInfo";
 import "./Summary.css";
 import React from "react";
 
 export function Summary() {
+  //todo: replace mock data with real data
   const mockData = [
     {
       type: "multiple",
@@ -42,14 +43,21 @@ export function Summary() {
 
   return (
     <div className="summary">
-      <div className="score">
-        <TotalScore data={mockData} />
+      <div className="summary-info">
+        <SummaryInfo quizData={mockData} />
       </div>
       <div className="cards">
-        {mockData.map((data) => (
-          <Card data={data} />
+        {mockData.map((quizData) => (
+          <Card quizData={quizData} />
         ))}
       </div>
+      <br />
+      <button onClick={sendToHomepage}>New Quiz</button>
     </div>
   );
+}
+
+function sendToHomepage() {
+  alert("Let's pretend this took you back to the homepage... :)");
+  //todo: Link to homepage
 }

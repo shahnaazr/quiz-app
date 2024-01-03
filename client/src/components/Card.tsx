@@ -20,10 +20,11 @@ export const Card: React.FC<MyComponentProps> = ({ quizData, index }) => {
         </h2>
       </div>
       <div className="card-answer">
-        <h2>
-          Correct Answer: {quizData.correct_answer}
+        <h2>Correct Answer: {quizData.correct_answer}</h2>
+        <p>
+          Your answer: {quizData.answered ? quizData.answered : "Didn't Answer"}
           {answeredCorrect()}
-        </h2>
+        </p>
       </div>
     </div>
   );

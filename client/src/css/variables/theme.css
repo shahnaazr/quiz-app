@@ -1,0 +1,21 @@
+:root {
+  --primary-color: var(--purple);
+  --secondary-color: var(--deep-purple);
+  --tertiary-color: var(--light-blue);
+  --accent-color: var(--yellow);
+  --neutral-color: #d1d5db;
+  --disabled-color: var(--darker-grey);
+  --dark-color: var(--darkest-grey);
+  --light-color: var(--lightest-grey);
+
+  --info-color: #2563eb;
+  --info-color-25: #c8d8fa;
+  --success-color: #059669;
+  --success-color-25: #c0e5d9;
+  --warning-color: #f59e0b;
+  --warning-color-25: #fce7c2;
+  --error-color: #c51162;
+  --error-color-25: #f0c3d8;
+  --backdrop-color: rgba(0, 0, 0, 0.8);
+  --shim-color: rgba(0, 0, 0, 0.5);
+}

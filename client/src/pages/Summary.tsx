@@ -47,8 +47,8 @@ export function Summary() {
         <SummaryInfo quizData={mockData} />
       </div>
       <div className="cards">
-        {mockData.map((quizData) => (
-          <Card quizData={quizData} />
+        {mockData.map((quizData, index) => (
+          <Card quizData={quizData} index={index} />
         ))}
       </div>
       <br />

@@ -1,24 +1,12 @@
 import React from "react";
-
-interface MyObject {
-  type: string;
-  difficulty: string;
-  category: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: string[];
-  answers: string[];
-  answered: string | null;
-  value: number | null;
-  // todo: value is presumably whether the score was correct or not? Need to check
-}
+import { QuizData } from "../types/data.types";
 
 interface MyComponentProps {
-  data: MyObject[];
+  data: QuizData[];
 }
 
 const TotalScore: React.FC<MyComponentProps> = ({ data }) => {
-  const sumScore = (arr: MyObject[]): number => {
+  const sumScore = (arr: QuizData[]): number => {
     let total = 0;
 
     arr.forEach((obj) => {
@@ -35,7 +23,9 @@ const TotalScore: React.FC<MyComponentProps> = ({ data }) => {
   return (
     <div className="showScore">
       <h1>Score: </h1>
-      <h2>{totalCorrect}/10</h2>
+      <h2>
+        {totalCorrect}/{data.length}
+      </h2>
     </div>
   );
 };

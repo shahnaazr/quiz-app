@@ -1,7 +1,6 @@
 import { Card } from "../components/Card";
-import TotalScore from "../components/Score";
+import { TotalScore } from "../components/Score";
 import "./Summary.css";
-
 import React from "react";
 
 export function Summary() {

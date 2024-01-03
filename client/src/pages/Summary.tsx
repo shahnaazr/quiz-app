@@ -1,7 +1,8 @@
 import { Card } from "../components/Card";
-import "./Summary.css";
-import React from "react";
 import TotalScore from "../components/Score";
+import "./Summary.css";
+
+import React from "react";
 
 export function Summary() {
   const mockData = [
@@ -46,11 +47,9 @@ export function Summary() {
         <TotalScore data={mockData} />
       </div>
       <div className="cards">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {mockData.map((data) => (
+          <Card data={data} />
+        ))}
       </div>
     </div>
   );

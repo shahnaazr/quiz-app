@@ -1,40 +1,50 @@
 import { Card } from "../components/Card";
 import "./Summary.css";
 import React from "react";
-
-/* const mock_questions = {
-  results: [
-    {
-      question:
-        "Which one of these characters was first introduced in Sonic Boom: Rise of Lyric?",
-      correct_answer: "Sticks the Badger",
-      answers: [
-        "Sticks the Badger",
-        "Mighty the Armadillo",
-        "Espio the Chameleon",
-        "Rouge the Bat",
-      ],
-      selected_answer: 0,
-    },
-    {
-      question: "fdg?",
-      correct_answer: "Sticks the dfg",
-      answers: [
-        "Sticks the dfg",
-        "Mighty the dfg",
-        "Espio the gdf",
-        "Rouge the dfg",
-      ],
-      selected_answer: 0,
-    },
-  ],
-}; */
+import TotalScore from "../components/Score";
 
 export function Summary() {
+  const mockData = [
+    {
+      type: "multiple",
+      difficulty: "medium",
+      category: "General Knowledge",
+      question: "What direction does the Statue of Liberty face?",
+      correct_answer: "Southeast",
+      incorrect_answers: ["Southwest", "Northwest", "Northeast"],
+      answers: ["Southwest", "Northwest", "Northeast", "Southeast"],
+      answered: null,
+      value: null,
+    },
+    {
+      type: "multiple",
+      difficulty: "medium",
+      category: "General Knowledge",
+      question: "What direction does the Statue of Liberty face?",
+      correct_answer: "Southeast",
+      incorrect_answers: ["Southwest", "Northwest", "Northeast"],
+      answers: ["Southwest", "Northwest", "Northeast", "Southeast"],
+      answered: "Northwest",
+      value: 0,
+    },
+    {
+      type: "multiple",
+      difficulty: "medium",
+      category: "General Knowledge",
+      question: "What direction does the Statue of Liberty face?",
+      correct_answer: "Southeast",
+      incorrect_answers: ["Southwest", "Northwest", "Northeast"],
+      answers: ["Southwest", "Northwest", "Northeast", "Southeast"],
+      answered: "Southeast",
+      value: 1,
+    },
+  ];
+
   return (
     <div className="summary">
-      <h1>Score:</h1>
-      <h2>8/10</h2>
+      <div className="score">
+        <TotalScore data={mockData} />
+      </div>
       <div className="cards">
         <Card />
         <Card />

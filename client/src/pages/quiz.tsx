@@ -36,17 +36,27 @@ const Quiz: React.FC = () => {
   };
 
   const handleAnswerChange = (answer: string) => {
-    triviaQuestions[questionIndex].answered = answer;
+    const updatedQuestions = [...triviaQuestions]; // Create a copy of the array
+
+    updatedQuestions[questionIndex] = {
+      ...updatedQuestions[questionIndex],
+      answered: answer,
+      value: updatedQuestions[questionIndex].correct_answer === answer ? 1 : 0,
+    };
+
     setAnswered(answer);
-    triviaQuestions[questionIndex].correct_answer === answer
-      ? (triviaQuestions[questionIndex].value = 1)
-      : (triviaQuestions[questionIndex].value = 0);
-    console.log(answer, triviaQuestions);
+    updateTriviaQuestions(updatedQuestions); // Update the context with the new array
+    console.log(answer, updatedQuestions);
   };
 
   const handleClick = () => {
     setQuestionIndex(questionIndex + 1);
     setAnswered("");
+  };
+
+  const decodeHtmlEntities = (html: string) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent || "";
   };
 
   return (
@@ -60,18 +70,23 @@ const Quiz: React.FC = () => {
             {triviaQuestions[questionIndex]?.category}{" "}
             <small>({triviaQuestions[questionIndex]?.difficulty})</small>
           </h3>
-          <p>{triviaQuestions[questionIndex]?.question}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: decodeHtmlEntities(triviaQuestions[questionIndex]?.question),
+            }}
+          />
           <form>
-            {triviaQuestions[questionIndex]?.answers.map((answer, _index) => (
+            {triviaQuestions[questionIndex]?.answers.map((answer, index) => (
               <div key={answer}>
                 <label>
                   <input
                     type="radio"
-                    name={`answer${questionIndex}`}
+                    name={`answer${questionIndex}-${index}`}
+                    checked={answer === answered}
                     value={answer}
                     onChange={() => handleAnswerChange(answer)}
                   />
-                  {answer}
+                  {decodeHtmlEntities(answer)}
                 </label>
               </div>
             ))}

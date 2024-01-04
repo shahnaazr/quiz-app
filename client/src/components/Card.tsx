@@ -2,12 +2,12 @@ import React from "react";
 import "./Card.css";
 import { QuizData } from "../types/quizData.types";
 
-interface MyComponentProps {
+interface CardProps {
   quizData: QuizData;
   index: number;
 }
 
-export const Card: React.FC<MyComponentProps> = ({ quizData, index }) => {
+export const Card: React.FC<CardProps> = ({ quizData, index }) => {
   function answeredCorrect() {
     return quizData.answered == quizData.correct_answer ? "✅" : "❌";
   }

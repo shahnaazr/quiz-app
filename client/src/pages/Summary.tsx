@@ -1,6 +1,6 @@
-import { Card } from "../components/Card";
-import { SummaryInfo } from "../components/SummaryInfo";
-import "./Summary.css";
+import { Card } from "../components/summary-card";
+import { SummaryInfo } from "../components/summary-info";
+import "../css/summary/summary.css";
 import React from "react";
 
 export function Summary() {
@@ -43,6 +43,7 @@ export function Summary() {
 
   return (
     <div className="summary">
+      <h1>Results Page</h1>
       <div className="summary-info">
         <SummaryInfo quizData={mockData} />
       </div>

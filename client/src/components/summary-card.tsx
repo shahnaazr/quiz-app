@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import "../css/summary/summary-card.css";
 import { QuizData } from "../types/quizData.types";
 
 interface CardProps {

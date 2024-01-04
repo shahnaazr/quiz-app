@@ -1,7 +1,6 @@
-#root {
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
+@import "tailwindcss/base";
+@import "./css/variables.css";
+@import "tailwindcss/components";
+/* @import "./css/components.css"; */
+@import "tailwindcss/utilities";
+/* @import "./css/utilities.css"; */

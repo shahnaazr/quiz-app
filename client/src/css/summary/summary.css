@@ -1,0 +1,25 @@
+:root {
+  --blueBG: #171c49;
+  --pinkBG: #8d3478;
+  --yellowTXT: #f3f2c0;
+  --whiteTXT: #ffffff;
+  padding: 5%;
+}
+
+.summary {
+  background-color: var(--blueBG);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.cards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  place-items: center;
+}

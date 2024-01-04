@@ -1,4 +1,9 @@
+import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+
+interface ApiResponse<Data> {
+  results: Data;
+}
 
 export interface FetchProps<Data> {
   data: Data | null;
@@ -15,14 +20,8 @@ export function useFetch<Data>(url: string): FetchProps<Data> {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(url);
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        setData(result);
+        const response: AxiosResponse<ApiResponse<Data>> = await axios(url);
+        setData(response.data.results);
       } catch (error: unknown) {
         if (error instanceof Error) {
           setError(error);

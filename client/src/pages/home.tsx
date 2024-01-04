@@ -6,10 +6,10 @@ import Categories from "../data/categories.json";
 
 const Home: React.FC = () => {
   const triviaContext = useContext(TriviaContext)!;
-  const { updateTriviaParams } = triviaContext;
+  const { updateTriviaParams, triviaParams } = triviaContext;
 
-  const [category, setCategory] = useState("9");
-  const [difficulty, setDifficulty] = useState("medium");
+  const [category, setCategory] = useState(triviaParams.category);
+  const [difficulty, setDifficulty] = useState(triviaParams.difficulty);
 
   const navigate = useNavigate();
 

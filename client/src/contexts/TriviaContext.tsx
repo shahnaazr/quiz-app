@@ -21,7 +21,7 @@ const TriviaProvider: React.FC<TriviaProviderProps> = ({ children }) => {
   const [triviaParams, setTriviaParams] = useState({
     amount: 10,
     type: "multiple",
-    difficulty: "medium",
+    difficulty: "easy",
     category: "9",
   });
 

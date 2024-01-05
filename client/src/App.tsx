@@ -1,4 +1,5 @@
 import "./App.css";
+import "./css/main.css"
 import { BrowserRouter } from "react-router-dom";
 import Router from "./router/router";
 import { TriviaProvider } from "./contexts/TriviaContext";

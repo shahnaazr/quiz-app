@@ -2,16 +2,16 @@
 import React, { useState } from 'react';
 
 type AnswerOptionsProps = {
-    incorrect_answers: string[];
-    correct_answer: string;
+    answers: string[];
+
 
 };
 
-const AnswerOptions: React.FC<AnswerOptionsProps> = ({ incorrect_answers, correct_answer}) => {
+const AnswerOptions: React.FC<AnswerOptionsProps> = ({ answers}) => {
   
   const [, setSelectedOption] = useState<string>('');
   
-  const handleSelectedOption = (option: string) => {
+  const handleOptionSelection = (option: string) => {
     setSelectedOption(option); 
     const options = document.querySelectorAll('.answer-option');
     options.forEach((opt) => {
@@ -24,9 +24,9 @@ const AnswerOptions: React.FC<AnswerOptionsProps> = ({ incorrect_answers, correc
   };
   return (
     <div>
-    {[...incorrect_answers, correct_answer].sort().map((option, index) => (
+    {[...answers].sort().map((option, index) => (
       <div key={index}>
-        <button onClick={() => handleSelectedOption(option)}>{option}</button>
+        <button onClick={() => handleOptionSelection(option)}>{option}</button>
       </div>
     ))}
   </div>

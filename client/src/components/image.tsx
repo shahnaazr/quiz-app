@@ -2,7 +2,7 @@
 import React from 'react';
 
 type ImageProps = {
-  image?: string;
+  image: string;
 };
 
 const Image: React.FC<ImageProps> = ({ image }) => {

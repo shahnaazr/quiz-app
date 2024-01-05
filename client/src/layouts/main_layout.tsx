@@ -6,7 +6,7 @@ const MainLayout = () => {
   return (
     <div> 
       <main data-testid="main">
-        <article className="container px-10 mx-auto">
+        <article className="container max-w-screen-lg px-10 mx-auto">
           <Outlet />
         </article>
       </main>

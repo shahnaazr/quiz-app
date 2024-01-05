@@ -22,7 +22,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <h1 className="text-center text-6xl py-10">Quiz Night</h1>
+      <h1 className="text-center text-4xl md:text-7xl  py-10">Quiz Night</h1>
       <form>
         <label>
         <h3 className="text-center mb-4 text-primary">Choose category:</h3>
@@ -44,13 +44,13 @@ const Home: React.FC = () => {
           </select>
         </label>
       
-        <button type="button" className="block text-xl mb-10 mx-auto p-4 bg-secondary hover:bg-secondaryHover" onClick={handleStartQuiz} data-testid="start-btn"> start quiz » 
+        <button type="button" className="block text-xl lg:text-2xl mb-5 mx-auto p-4 lg:p-6 bg-secondary hover:bg-secondaryHover" onClick={handleStartQuiz} data-testid="start-btn"> start quiz » 
         </button>
 
       </form>
       <div className="flex justify-between">
-        <img className="" src={brainLeft} alt="Smiling brain" width={100} /> 
-        <img className="" src={brainRight} alt="Thinking brain" width={93}/>
+        <img className="w-28 md:w-52" src={brainLeft} alt="Smiling brain" /> 
+        <img className="w-24 md:w-48" src={brainRight} alt="Thinking brain" width={93}/>
       </div>
     </>
   );

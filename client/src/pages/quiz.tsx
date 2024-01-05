@@ -9,8 +9,17 @@ import Question from "../components/question";
 import NextButton from "../components/next_button";
 import AnswerOptions from "../components/answer_options";
 import { shuffleArray } from "../utils/utils"
-import brainLeft from "../assets/images/home/brain-left.svg"
 import img1 from "../assets/images/quiz-page/img1.svg"
+import img2 from "../assets/images/quiz-page/img2.svg"
+import img3 from "../assets/images/quiz-page/img3.svg"
+import img4 from "../assets/images/quiz-page/img4.svg"
+import img5 from "../assets/images/quiz-page/img5.svg"
+ import img6 from "../assets/images/quiz-page/img6.svg"
+ import img7 from "../assets/images/quiz-page/img7.svg"
+ import img8 from "../assets/images/quiz-page/img8.svg"
+ import img9 from "../assets/images/quiz-page/img9.svg"
+ import img10 from "../assets/images/quiz-page/img10.svg"
+
 
 const Quiz: React.FC = () => {
 
@@ -24,6 +33,20 @@ const Quiz: React.FC = () => {
 
   const apiUrl = `${apiHost}:${apiPort}${apiBaseUrl}?category=${triviaParams.category}&difficulty=${triviaParams.difficulty}`;
   const { data, loading, error }: FetchProps<QuizQuestion[]> = useFetch(apiUrl);
+
+  const imageMap: Record<number, string>= {
+    1: img1,
+    2: img2,
+    3: img3,
+    4: img4,
+    5: img5,
+    6: img6,
+    7: img7,
+    8: img8,
+    9: img9,
+    10: img10,
+
+  };
 
   useEffect(() => {
     if (data) {
@@ -51,6 +74,8 @@ const Quiz: React.FC = () => {
     setAnswered("");
   };
 
+  const selectedImage = imageMap[questionIndex+1];
+
   return (
     <>
       {loading && <p>Loading the quiz for you...</p>}
@@ -59,9 +84,10 @@ const Quiz: React.FC = () => {
         <div>      
           <Category category={triviaQuestions[questionIndex]?.category}/>
           <div className="flex justify-between">
-            <img className="" src={img1} alt="Smiling brain" width={93} /> 
+           {{selectedImage} && <img className="" src={selectedImage} alt="Thinking brain" width={80} /> }
+           <QuestionNumber questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length}/>
           </div>
-          <QuestionNumber questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length}/>
+          
           <Question question={triviaQuestions[questionIndex]?.question}/>
           <AnswerOptions answers={triviaQuestions[questionIndex]?.answers} handleAnswerSelection={handleAnswerSelection}/>
           <NextButton questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length} handleNextQuestion={handleClick} answered={!answered}/>

@@ -6,7 +6,6 @@ import { QuizQuestion, ExtendedQuizQuestion } from "../types/QuizQuestion";
 import { decodeHtmlEntities, shuffleArray } from "../helpers";
 import { Alert } from "../components/alert";
 import { Loading } from "../components/loading";
-import { Link } from "react-router-dom";
 
 const Quiz: React.FC = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -69,7 +68,7 @@ const Quiz: React.FC = () => {
       {data && !errorMessage && (
         <div>
           <h3>
-            {triviaQuestions[questionIndex]?.category}{" "}
+            {decodeHtmlEntities(triviaQuestions[questionIndex]?.category)}{" "}
             <small>({triviaQuestions[questionIndex]?.difficulty})</small>
           </h3>
           <p

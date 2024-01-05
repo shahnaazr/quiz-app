@@ -26,7 +26,7 @@ const AnswerOptions: React.FC<AnswerOptionsProps> = ({ answers, handleAnswerSele
     {answers && [...answers].sort().map((option, index) => (
       
       <div key={index}>
-        <button onClick={() => {handleOptionSelection(option);handleAnswerSelection(option)}}>{option}</button>
+        <button className="block mx-auto mb-14 text-primary hover:bg-secondaryHover" onClick={() => {handleOptionSelection(option);handleAnswerSelection(option)}}>{option}</button>
       </div>
     ))}
   </div>

@@ -2,11 +2,14 @@
 import React from 'react';
 
 type ImageProps = {
-  image: string;
+  imageUrl: string;
 };
 
-const Image: React.FC<ImageProps> = ({ image }) => {
-  return image && <img src={image} alt="category" />;
+const Image: React.FC<ImageProps> = ({ imageUrl }) => {
+  return (
+    <div className="flex justify-between">
+      {imageUrl && <img className="" src={imageUrl} alt="category" width={100} />}
+    </div>)
 };
 
 export default Image;

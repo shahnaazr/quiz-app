@@ -9,6 +9,8 @@ import Question from "../components/question";
 import NextButton from "../components/next_button";
 import AnswerOptions from "../components/answer_options";
 import { shuffleArray } from "../utils/utils"
+import brainLeft from "../assets/images/home/brain-left.svg"
+import img1 from "../assets/images/quiz-page/img1.svg"
 
 const Quiz: React.FC = () => {
 
@@ -56,6 +58,9 @@ const Quiz: React.FC = () => {
       {data && (
         <div>      
           <Category category={triviaQuestions[questionIndex]?.category}/>
+          <div className="flex justify-between">
+            <img className="" src={img1} alt="Smiling brain" width={93} /> 
+          </div>
           <QuestionNumber questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length}/>
           <Question question={triviaQuestions[questionIndex]?.question}/>
           <AnswerOptions answers={triviaQuestions[questionIndex]?.answers} handleAnswerSelection={handleAnswerSelection}/>

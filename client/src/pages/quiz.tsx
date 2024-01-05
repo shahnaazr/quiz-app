@@ -4,6 +4,8 @@ import { TriviaContext } from "../contexts/TriviaContext";
 import { useFetch, FetchProps } from "../hooks/use_fetch";
 import { QuizQuestion, ExtendedQuizQuestion } from "../types/QuizQuestion";
 import { decodeHtmlEntities, shuffleArray } from "../helpers";
+import { Alert } from "../components/alert";
+import { Loading } from "../components/loading";
 
 const Quiz: React.FC = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -49,8 +51,8 @@ const Quiz: React.FC = () => {
   return (
     <>
       <h1>Quiz Page</h1>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
+      {loading && <Loading caption="Loading Questions" />}
+      {error && <Alert status="error" message={error.message} />}
       {data && (
         <div>
           <h3>

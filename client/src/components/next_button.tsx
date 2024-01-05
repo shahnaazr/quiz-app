@@ -19,9 +19,9 @@ const NextButton: React.FC<NextButtonProps> = ({ questionIndex, totalNumberOfQue
   return (
     <div>
       {questionIndex < totalNumberOfQuestions - 1 ? (
-        <button className="block text-xl mb-10 mx-auto p-4 bg-secondary hover:bg-secondaryHover" onClick={handleNextQuestion} disabled={!answered}>Next {'>>'}</button>
+        <button className="block text-xl mb-10 mx-auto p-4 bg-secondary hover:bg-secondaryHover" onClick={handleNextQuestion} disabled={!answered}> next »</button>
       ) : (
-        <button className="block text-xl mb-10 mx-auto p-4 bg-secondary hover:bg-secondaryHover" onClick={handleFinishQuiz} disabled={!answered}>Finish</button>
+        <button className="block text-xl mb-10 mx-auto p-4 bg-secondary hover:bg-secondaryHover" onClick={handleFinishQuiz} disabled={!answered}>finish »</button>
       )}
     </div>
   );

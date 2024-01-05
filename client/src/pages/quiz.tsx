@@ -11,12 +11,16 @@ import AnswerOptions from "../components/answer_options";
 import { shuffleArray } from "../utils/utils"
 
 const Quiz: React.FC = () => {
+
+  const apiHost = import.meta.env.VITE_API_HOST;
+  const apiPort = import.meta.env.VITE_API_PORT;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answered, setAnswered] = useState("");
   const triviaContext = useContext(TriviaContext)!;
   const { triviaParams, updateTriviaQuestions, triviaQuestions } = triviaContext;
 
-  const apiUrl = `http://localhost:3000/trivia?category=${triviaParams.category}&difficulty=${triviaParams.difficulty}`;
+  const apiUrl = `${apiHost}:${apiPort}${apiBaseUrl}?category=${triviaParams.category}&difficulty=${triviaParams.difficulty}`;
   const { data, loading, error }: FetchProps<QuizQuestion[]> = useFetch(apiUrl);
 
   useEffect(() => {

@@ -19,6 +19,7 @@ import img5 from "../assets/images/quiz-page/img5.svg"
  import img8 from "../assets/images/quiz-page/img8.svg"
  import img9 from "../assets/images/quiz-page/img9.svg"
  import img10 from "../assets/images/quiz-page/img10.svg"
+import Image from "../components/image";
 
 
 const Quiz: React.FC = () => {
@@ -84,10 +85,9 @@ const Quiz: React.FC = () => {
         <div>      
           <Category category={triviaQuestions[questionIndex]?.category}/>
           <div className="flex justify-between">
-           {{selectedImage} && <img className="" src={selectedImage} alt="Thinking brain" width={80} /> }
+          {{selectedImage} &&<Image imageUrl={selectedImage}/>}
            <QuestionNumber questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length}/>
           </div>
-          
           <Question question={triviaQuestions[questionIndex]?.question}/>
           <AnswerOptions answers={triviaQuestions[questionIndex]?.answers} handleAnswerSelection={handleAnswerSelection}/>
           <NextButton questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length} handleNextQuestion={handleClick} answered={!answered}/>

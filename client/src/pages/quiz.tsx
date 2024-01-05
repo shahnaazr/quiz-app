@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { TriviaContext } from "../contexts/TriviaContext";
 import { useFetch, FetchProps } from "../hooks/use_fetch";
 import { QuizQuestion, ExtendedQuizQuestion } from "../types/QuizQuestion";
+import { decodeHtmlEntities, shuffleArray } from "../helpers";
 
 const Quiz: React.FC = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -26,17 +27,8 @@ const Quiz: React.FC = () => {
     }
   }, [data]);
 
-  const shuffleArray = (array: any[]) => {
-    const shuffledArray = [...array];
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-    }
-    return shuffledArray;
-  };
-
   const handleAnswerChange = (answer: string) => {
-    const updatedQuestions = [...triviaQuestions]; // Create a copy of the array
+    const updatedQuestions = [...triviaQuestions];
 
     updatedQuestions[questionIndex] = {
       ...updatedQuestions[questionIndex],
@@ -45,18 +37,13 @@ const Quiz: React.FC = () => {
     };
 
     setAnswered(answer);
-    updateTriviaQuestions(updatedQuestions); // Update the context with the new array
+    updateTriviaQuestions(updatedQuestions);
     console.log(answer, updatedQuestions);
   };
 
   const handleClick = () => {
     setQuestionIndex(questionIndex + 1);
     setAnswered("");
-  };
-
-  const decodeHtmlEntities = (html: string) => {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    return doc.body.textContent || "";
   };
 
   return (

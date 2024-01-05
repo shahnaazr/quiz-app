@@ -51,8 +51,8 @@ const Quiz: React.FC = () => {
 
   return (
     <>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
+      {loading && <p>Loading the quiz for you...</p>}
+      {error && <p>An Error has encountered. Dtails of the the error can be found here - {error.message}</p>}
       {data && (
         <div>      
           <Category category={triviaQuestions[questionIndex]?.category}/>

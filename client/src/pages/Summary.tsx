@@ -3,9 +3,15 @@ import { SummaryInfo } from "../components/summary-info";
 import "../css/summary/summary.css";
 import { TriviaContext } from "../contexts/TriviaContext";
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Summary: React.FC = () => {
   const { triviaQuestions } = useContext(TriviaContext)!;
+  const navigate = useNavigate();
+
+  function sendToHomepage() {
+    navigate("/");
+  }
 
   return (
     <div className="summary">
@@ -22,12 +28,14 @@ export const Summary: React.FC = () => {
         ))}
       </div>
       <br />
-      <button onClick={sendToHomepage}>New Quiz</button>
+      <button
+        type="button"
+        className="block text-xl lg:text-2xl mb-5 mx-auto p-4 lg:p-6 bg-secondary hover:bg-secondaryHover"
+        onClick={sendToHomepage}
+        data-testid="home-btn"
+      >
+        Home
+      </button>
     </div>
   );
 };
-
-function sendToHomepage() {
-  alert("Let's pretend this took you back to the homepage... :)");
-  //todo: Link to homepage
-}

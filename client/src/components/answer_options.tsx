@@ -15,10 +15,8 @@ const AnswerOptions: React.FC<AnswerOptionsProps> = ({ answers, handleAnswerSele
     const options = document.querySelectorAll('.answer-option');
     options.forEach((opt) => {
       if (opt.textContent === option) {
-        opt.classList.add('error');
         opt.classList.add('selected');
       } else {
-        opt.classList.remove('error');
         opt.classList.remove('selected'); 
       }
     });

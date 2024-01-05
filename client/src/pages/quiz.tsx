@@ -6,18 +6,26 @@ import { QuizQuestion, ExtendedQuizQuestion } from "../types/QuizQuestion";
 import { decodeHtmlEntities, shuffleArray } from "../helpers";
 import { Alert } from "../components/alert";
 import { Loading } from "../components/loading";
+import { Link } from "react-router-dom";
 
 const Quiz: React.FC = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answered, setAnswered] = useState("");
   const triviaContext = useContext(TriviaContext)!;
   const { triviaParams, updateTriviaQuestions, triviaQuestions } = triviaContext;
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const apiUrl = `http://localhost:3000/trivia?category=${triviaParams.category}&difficulty=${triviaParams.difficulty}`;
   const { data, loading, error }: FetchProps<QuizQuestion[]> = useFetch(apiUrl);
 
   useEffect(() => {
     if (data) {
+      if (data.length === 0) {
+        setErrorMessage(`Oops! We didn't find any questions for ${triviaParams.categoryName} at
+            ${triviaParams.difficulty} level.`);
+        return;
+      }
+
       const extendedData: ExtendedQuizQuestion[] = data.map((question) => ({
         ...question,
         answers: shuffleArray([...question.incorrect_answers, question.correct_answer]),
@@ -52,8 +60,13 @@ const Quiz: React.FC = () => {
     <>
       <h1>Quiz Page</h1>
       {loading && <Loading caption="Loading Questions" />}
-      {error && <Alert status="error" message={error.message} />}
-      {data && (
+      {(error || errorMessage) && (
+        <Alert
+          status="error"
+          message={errorMessage || (error && error.message) || "Unknown error"}
+        />
+      )}
+      {data && !errorMessage && (
         <div>
           <h3>
             {triviaQuestions[questionIndex]?.category}{" "}

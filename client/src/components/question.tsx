@@ -2,15 +2,15 @@
 import React from 'react';
 
 type QuestionProps = {
-  currentQuestion: number;
+  currentQuestionNumber: number;
   question: string;
 };
 
-const Question: React.FC<QuestionProps> = ({ currentQuestion, question }) => {
+const Question: React.FC<QuestionProps> = ({ currentQuestionNumber, question }) => {
   return (
     <div>
-      <h1>Question {currentQuestion + 1}</h1>
-      <h2 dangerouslySetInnerHTML={{ __html: question }} />
+      <h1>Question {currentQuestionNumber + 1}</h1>
+      <h2>{ question }</h2>
     </div>
   );
 };

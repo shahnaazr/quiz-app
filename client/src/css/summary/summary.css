@@ -3,13 +3,9 @@
   --pinkBG: #8d3478;
   --yellowTXT: #f3f2c0;
   --whiteTXT: #ffffff;
-
-  background-color: var(--blueBG);
-  color: var(--whiteTXT);
 }
 
 .summary {
-  background-color: var(--blueBG);
   width: 100%;
   height: 100%;
   text-align: left;
@@ -19,20 +15,19 @@
 
 .highlighted {
   background-color: var(--pinkBG);
-  padding: 5px;
-  width: 120px;
+  padding: 10px;
+  width: 6.5em;
 }
 
 .score {
-  font-weight: bolder;
-  font-size: larger;
-  font-style: italic;
+  padding: 0.5em;
+  font-weight: bold;
 }
 .cards {
   width: 100%;
+  row-gap: 50px;
   display: flex;
   flex-direction: column;
-  row-gap: 50px;
   justify-content: flex-start;
 }
 

@@ -14,6 +14,12 @@
 }
 
 .card-question {
+  color: var(--whiteTXT);
+}
+.card-answer {
   color: var(--yellowTXT);
+}
+
+.user-answer {
   font-weight: bold;
 }

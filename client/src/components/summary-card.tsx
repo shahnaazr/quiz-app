@@ -21,7 +21,8 @@ export const Card: React.FC<CardProps> = ({ quizData, index }) => {
       </div>
       <div className="card-answer">
         <h2>Answer: {quizData.correct_answer}</h2>
-        <p>
+        <br />
+        <p className="user-answer">
           You answered:{" "}
           {quizData.answered ? quizData.answered : "Didn't Answer"}
           {answeredCorrect()}

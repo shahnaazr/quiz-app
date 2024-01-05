@@ -19,9 +19,9 @@ export const SummaryInfo: React.FC<MyComponentProps> = ({ quizData }) => {
   }, [quizData]);
 
   function getIcon() {
-    if (totalScore >= quizData.length * 0.75) {
+    if (totalScore >= quizData.length * 0.7) {
       return firstIcon;
-    } else if (totalScore >= quizData.length * 0.4) {
+    } else if (totalScore >= quizData.length * 0.3) {
       return secondIcon;
     }
     return thirdIcon;
@@ -31,9 +31,9 @@ export const SummaryInfo: React.FC<MyComponentProps> = ({ quizData }) => {
   return (
     <div className="summaryInfo">
       <div className="info box">
-        <h2>Your Name, </h2>
-        <h2 className="highlighted">You Scored: </h2>
-        <h2 className="score">
+        {/* <h2>Your Name, </h2> */}
+        <h2 className="highlighted text-2xl">YOU SCORE: </h2>
+        <h2 className="score text-7xl">
           {totalScore}/{quizData.length}
         </h2>
       </div>

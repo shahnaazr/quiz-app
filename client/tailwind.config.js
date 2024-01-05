@@ -1,21 +1,26 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ["./src/**/*.{html,tsx}"],
   theme: {
+    fontFamily: {
+      body: ["Poppins", "sans-serif"],
+      header: ["Lilita One", "sans-serif"],
+    },
     extend: {
       colors: {
-        primary: "var(--primary-color)",
-        secondary: "var(--secondary-color)",
-        accent: "var(--accent-color)",
-        tertiary: "var(--tertiary-color)",
-        neutral: "var(--neutral-color)",
-        dark: "var(--dark-color)",
-        light: "var(--light-color)",
-        info: "var(--info-color)",
-        success: "var(--success-color)",
-        warning: "var(--warning-color)",
-        error: "var(--error-color)",
-        danger: "var(--error-color)",
+        primary: "#f3f2c0",
+        secondary: "#8d3478",
+        secondaryHover: "#C851AC",
+        accent: "#171c49",
+        tertiary: "#191E4D",
+        terinatyHover: "#121639",
+        font: "#ffffff",
+        info: "#f3f2c0",
+        success: "#049462",
+        warning: "#aba304",
+        error: "#c21111",
+        danger: "#c21111",
         current: "currentColor",
       },
     },

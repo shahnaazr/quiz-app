@@ -16,13 +16,15 @@ export const Card: React.FC<CardProps> = ({ quizData, index }) => {
     <div className="card">
       <div className="card-question">
         <h2>
-          Question {index + 1}: {quizData.question}
+          {index + 1}. {quizData.question}
         </h2>
       </div>
       <div className="card-answer">
-        <h2>Correct Answer: {quizData.correct_answer}</h2>
-        <p>
-          Your answer: {quizData.answered ? quizData.answered : "Didn't Answer"}
+        <h2>Answer: {quizData.correct_answer}</h2>
+        <br />
+        <p className="user-answer">
+          You answered:{" "}
+          {quizData.answered ? quizData.answered : "Didn't Answer"}
           {answeredCorrect()}
         </p>
       </div>

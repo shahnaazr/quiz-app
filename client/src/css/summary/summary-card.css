@@ -9,14 +9,17 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 10em;
-
-  background-color: var(--pinkBG);
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
+  height: 6em;
+  margin: 15px;
 }
 
-h1 {
+.card-question {
+  color: var(--whiteTXT);
+}
+.card-answer {
   color: var(--yellowTXT);
+}
+
+.user-answer {
+  font-weight: bold;
 }

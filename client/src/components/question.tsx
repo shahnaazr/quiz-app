@@ -8,7 +8,7 @@ type QuestionProps = {
 const Question: React.FC<QuestionProps> = ({ question }) => {
   return (
     <div>
-      <h2>{ question }</h2>
+      <h2 className="block mx-auto mb-14 text-primary">{ question }</h2>
     </div>
   );
 };

@@ -1,23 +1,27 @@
 // NextButton.tsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type NextButtonProps = {
-  currentQuestionNumber: number;
+  questionIndex: number;
   totalNumberOfQuestions: number;
+  handleNextQuestion: () => void;
+  answered: boolean
 };
 
-const NextButton: React.FC<NextButtonProps> = ({ currentQuestionNumber, totalNumberOfQuestions}) => {
-
-  const handleNextQuestion = () => {
-
-  }
+const NextButton: React.FC<NextButtonProps> = ({ questionIndex, totalNumberOfQuestions, handleNextQuestion}, answered) => {
+  const navigate = useNavigate();
+  
+  const handleFinishQuiz = () => {
+    navigate("/results");
+  };
 
   return (
     <div>
-      {currentQuestionNumber < totalNumberOfQuestions - 1 ? (
-        <button onClick={handleNextQuestion}>Next</button>
+      {questionIndex < totalNumberOfQuestions - 1 ? (
+        <button onClick={handleNextQuestion} disabled={!answered}>Next</button>
       ) : (
-        <button onClick={handleNextQuestion}>Finish</button>
+        <button onClick={handleFinishQuiz} disabled={!answered}>Finish</button>
       )}
     </div>
   );

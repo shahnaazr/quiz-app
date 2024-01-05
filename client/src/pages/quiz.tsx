@@ -3,6 +3,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { TriviaContext } from "../contexts/TriviaContext";
 import { useFetch, FetchProps } from "../hooks/use_fetch";
 import { QuizQuestion, ExtendedQuizQuestion } from "../types/QuizQuestion";
+import Category from "../components/category";
+import QuestionNumber from "../components/question_number";
+import Question from "../components/question";
+import NextButton from "../components/next_button";
+import AnswerOptions from "../components/answer_options";
+import { shuffleArray } from "../utils/utils"
 
 const Quiz: React.FC = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -26,22 +32,12 @@ const Quiz: React.FC = () => {
     }
   }, [data]);
 
-  const shuffleArray = (array: any[]) => {
-    const shuffledArray = [...array];
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-    }
-    return shuffledArray;
-  };
-
-  const handleAnswerChange = (answer: string) => {
+  const handleAnswerSelection = (answer: string) => {
     triviaQuestions[questionIndex].answered = answer;
     setAnswered(answer);
     triviaQuestions[questionIndex].correct_answer === answer
       ? (triviaQuestions[questionIndex].value = 1)
       : (triviaQuestions[questionIndex].value = 0);
-    console.log(answer, triviaQuestions);
   };
 
   const handleClick = () => {
@@ -51,34 +47,15 @@ const Quiz: React.FC = () => {
 
   return (
     <>
-      <h1>Quiz Page</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {data && (
-        <div>
-          <h3>
-            {triviaQuestions[questionIndex]?.category}{" "}
-            <small>({triviaQuestions[questionIndex]?.difficulty})</small>
-          </h3>
-          <p>{triviaQuestions[questionIndex]?.question}</p>
-          <form>
-            {triviaQuestions[questionIndex]?.answers.map((answer, _index) => (
-              <div key={answer}>
-                <label>
-                  <input
-                    type="radio"
-                    name={`answer${questionIndex}`}
-                    value={answer}
-                    onChange={() => handleAnswerChange(answer)}
-                  />
-                  {answer}
-                </label>
-              </div>
-            ))}
-            <button type="button" onClick={handleClick} disabled={!answered}>
-              Next
-            </button>
-          </form>
+        <div>      
+          <Category category={triviaQuestions[questionIndex]?.category}/>
+          <QuestionNumber questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length}/>
+          <Question question={triviaQuestions[questionIndex]?.question}/>
+          <AnswerOptions answers={triviaQuestions[questionIndex]?.answers} handleAnswerSelection={handleAnswerSelection}/>
+          <NextButton questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length} handleNextQuestion={handleClick} answered={!answered}/>
         </div>
       )}
     </>

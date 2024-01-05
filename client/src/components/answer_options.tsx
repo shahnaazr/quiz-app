@@ -3,11 +3,10 @@ import React, { useState } from 'react';
 
 type AnswerOptionsProps = {
     answers: string[];
-
-
+    handleAnswerSelection: (answer: string) => void
 };
 
-const AnswerOptions: React.FC<AnswerOptionsProps> = ({ answers}) => {
+const AnswerOptions: React.FC<AnswerOptionsProps> = ({ answers, handleAnswerSelection}) => {
   
   const [, setSelectedOption] = useState<string>('');
   
@@ -24,9 +23,10 @@ const AnswerOptions: React.FC<AnswerOptionsProps> = ({ answers}) => {
   };
   return (
     <div>
-    {[...answers].sort().map((option, index) => (
+    {answers && [...answers].sort().map((option, index) => (
+      
       <div key={index}>
-        <button onClick={() => handleOptionSelection(option)}>{option}</button>
+        <button onClick={() => {handleOptionSelection(option);handleAnswerSelection(option)}}>{option}</button>
       </div>
     ))}
   </div>

@@ -6,7 +6,7 @@ type CategoryProps = {
 };
 
 const Category: React.FC<CategoryProps> = ({ category }) => {
-  return <h3>{category}</h3>;
+  return <h1>{category}</h1>;
 };
 
 export default Category;

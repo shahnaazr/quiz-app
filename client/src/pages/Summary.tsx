@@ -44,9 +44,12 @@ export function Summary() {
   return (
     <div className="summary">
       <h1>Results Page</h1>
+      <br />
       <div className="summary-info">
         <SummaryInfo quizData={mockData} />
       </div>
+      <br />
+      <h1>Correct Answers</h1>
       <div className="cards">
         {mockData.map((quizData, index) => (
           <Card quizData={quizData} index={index} />

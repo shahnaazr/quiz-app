@@ -2,12 +2,12 @@
 import React from 'react';
 
 type QuestionNumberProps = {
-  currentQuestionNumber: number;
+  questionIndex: number;
   totalNumberOfQuestions: number;
 };
 
-const QuestionNumber: React.FC<QuestionNumberProps> = ({ currentQuestionNumber, totalNumberOfQuestions }) => {
-  return <p>{currentQuestionNumber + 1}/{totalNumberOfQuestions}</p>;
+const QuestionNumber: React.FC<QuestionNumberProps> = ({ questionIndex, totalNumberOfQuestions }) => {
+  return <p>{questionIndex + 1}/{totalNumberOfQuestions}</p>;
 };
 
 export default QuestionNumber;

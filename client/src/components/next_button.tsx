@@ -10,8 +10,7 @@ type NextButtonProps = {
 };
 
 const NextButton: React.FC<NextButtonProps> = ({ questionIndex, totalNumberOfQuestions, handleNextQuestion}, answered) => {
-  const navigate = useNavigate();
-  
+  const navigate = useNavigate()
   const handleFinishQuiz = () => {
     navigate("/results");
   };

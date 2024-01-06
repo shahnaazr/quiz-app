@@ -1,0 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
+const NaviagateToResults = () => {
+  const navigate = useNavigate();
+  return navigate("/results");
+};
+
+export default NaviagateToResults;

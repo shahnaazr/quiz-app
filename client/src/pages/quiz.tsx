@@ -3,6 +3,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { TriviaContext } from "../contexts/TriviaContext";
 import { useFetch, FetchProps } from "../hooks/use_fetch";
 import { QuizQuestion, ExtendedQuizQuestion } from "../types/QuizQuestion";
+import { decodeHtmlEntities, shuffleArray } from "../helpers";
+import { Alert } from "../components/alert";
+import { Loading } from "../components/loading";
 import Category from "../components/category";
 import QuestionNumber from "../components/question_number";
 import Question from "../components/question";
@@ -23,7 +26,6 @@ import img5 from "../assets/images/quiz-page/img5.svg"
  import img10 from "../assets/images/quiz-page/img10.svg"
 import Image from "../components/image";
 
-
 const Quiz: React.FC = () => {
 
   const apiHost = import.meta.env.VITE_API_HOST;
@@ -34,6 +36,8 @@ const Quiz: React.FC = () => {
   const [resetTimer, setResetTimer] = useState(false);
   const triviaContext = useContext(TriviaContext)!;
   const { triviaParams, updateTriviaQuestions, triviaQuestions } = triviaContext;
+
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const apiUrl = `${apiHost}:${apiPort}${apiBaseUrl}?category=${triviaParams.category}&difficulty=${triviaParams.difficulty}`;
@@ -55,6 +59,12 @@ const Quiz: React.FC = () => {
 
   useEffect(() => {
     if (data) {
+      if (data.length === 0) {
+        setErrorMessage(`Oops! We didn't find any questions for ${triviaParams.categoryName} at
+            ${triviaParams.difficulty} level.`);
+        return;
+      }
+
       const extendedData: ExtendedQuizQuestion[] = data.map((question) => ({
         ...question,
         answers: shuffleArray([...question.incorrect_answers, question.correct_answer]),
@@ -66,6 +76,18 @@ const Quiz: React.FC = () => {
     }
   }, [data]);
 
+  const handleAnswerChange = (answer: string) => {
+    const updatedQuestions = [...triviaQuestions];
+
+    updatedQuestions[questionIndex] = {
+      ...updatedQuestions[questionIndex],
+      answered: answer,
+      value: updatedQuestions[questionIndex].correct_answer === answer ? 1 : 0,
+    };
+
+    setAnswered(answer);
+    updateTriviaQuestions(updatedQuestions);
+    console.log(answer, updatedQuestions);
   
 
   const handleAnswerSelection = (answer: string) => {
@@ -75,6 +97,7 @@ const Quiz: React.FC = () => {
       ? (triviaQuestions[questionIndex].value = 1)
       : (triviaQuestions[questionIndex].value = 0);
       setResetTimer(true);
+
   };
 
   const handleClick = () => {
@@ -102,8 +125,15 @@ const Quiz: React.FC = () => {
 
   return (
     <>
-      {loading && <p>Loading the quiz for you...</p>}
-      {error && <p>An Error has been encountered while fetching the data from the API. Please see the details of the error - {error.message}</p>}
+
+      <h1>Quiz Page</h1>
+      {loading && <Loading caption="Loading Questions" />}
+      {(error || errorMessage) && (
+        <Alert
+          status="error"
+          message={errorMessage || (error && error.message) || "Unknown error"}
+        />
+      )}
       {data && (
         <div>     
           <Category category={triviaQuestions[questionIndex]?.category}/>

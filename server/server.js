@@ -48,7 +48,7 @@ app.get("/trivia", async (req, res) => {
   } catch (error) {
     if (!error.message.includes("429")) {
       console.error("Error fetching trivia questions:", error.message);
-      res.status(500).json({ error: "Internal Server Error" });
+      res.status(500).json({ error: error.message });
     }
   }
 });

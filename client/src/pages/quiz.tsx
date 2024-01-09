@@ -103,7 +103,7 @@ const Quiz: React.FC = () => {
 
     setAnswered(answer);
     updateTriviaQuestions(updatedQuestions);
-    setResetTimer(true);
+    setResetTimer(false);
   };
 
   const handleClick = () => {

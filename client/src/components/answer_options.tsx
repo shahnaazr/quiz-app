@@ -22,14 +22,11 @@ const AnswerOptions: React.FC<AnswerOptionsProps> = ({ answers, handleAnswerSele
     });
   };
   return (
-    <div>
+    <ul className='pb-10'>
     {answers && [...answers].sort().map((option, index) => (
-      
-      <div key={index}>
-        <button className="block mx-auto mb-14 text-primary hover:bg-secondaryHover" onClick={() => {handleOptionSelection(option);handleAnswerSelection(option)}}>{option}</button>
-      </div>
+        <li key={index} className="text-center py-5 mb-2 mx-5 lg:mx-10 bg-tertiary hover:shadow-gold hover:bg-terinatyHover" onClick={() => {handleOptionSelection(option);handleAnswerSelection(option)}}>{option}</li>
     ))}
-  </div>
+  </ul>
   );
 };
 

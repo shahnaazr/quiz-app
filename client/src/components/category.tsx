@@ -7,7 +7,7 @@ type CategoryProps = {
 const Category: React.FC<CategoryProps> = ({ category }) => {
   return (
     <>
-      {category && <h1 className="text-center text-6xl py-10">{category}</h1>}
+      {category && <h1 className="text-center text-3xl md:text-4xl lg:text-5xl py-10">{category}</h1>}
     </>
   );
 };

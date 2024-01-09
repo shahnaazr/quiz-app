@@ -17,7 +17,7 @@ export default {
         terinatyHover: "#1B2156",
         font: "#ffffff",
         info: "#f3f2c0", // yellow
-        success: "#049462",
+        success: "#B0C39E", //green
         warning: "#aba304",
         error: "#c21111",
         danger: "#c21111",

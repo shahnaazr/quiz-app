@@ -1,6 +1,5 @@
 import { Card } from "../components/summary-card";
 import { SummaryInfo } from "../components/summary-info";
-import "../css/summary/summary.css";
 import { TriviaContext } from "../contexts/TriviaContext";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -14,28 +13,29 @@ export const Summary: React.FC = () => {
   }
 
   return (
-    <div className="summary" data-testid="summary">
-      <h1 className="text-center text-7xl py-10">Summary</h1>
-      <br />
-      <div className="summary-info">
+    <div data-testid="summary">
+      <h1 className="text-center text-primary  text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-5">Summary</h1>
+
+      <div className="sm:bg-secondary">
         <SummaryInfo quizData={triviaQuestions} />
       </div>
       <br />
-      <h1 className="text-2xl">Correct Answers</h1>
-      <div className="cards">
+      <h1 className="text-2xl mb-5">Correct Answers</h1>
+      <div className="">
         {triviaQuestions.map((quizData, index) => (
           <Card key={index} quizData={quizData} index={index} />
         ))}
       </div>
-      <br />
-      <button
-        type="button"
-        className="block text-xl lg:text-2xl mb-5 mx-auto p-4 lg:p-6 bg-secondary hover:bg-secondaryHover"
-        onClick={sendToHomepage}
-        data-testid="home-btn"
-      >
-        Home
-      </button>
+      <div className="pb-10">
+        <button
+          type="button"
+          className="block text-xl lg:text-2xl mx-auto py-2 px-4 lg:p-6 bg-secondary hover:bg-secondaryHover"
+          onClick={sendToHomepage}
+          data-testid="home-btn"
+        >
+          new quiz »
+        </button>
+      </div>
     </div>
   );
 };

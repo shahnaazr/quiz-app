@@ -29,18 +29,18 @@ export const SummaryInfo: React.FC<MyComponentProps> = ({ quizData }) => {
 
   //todo: Replace your name with the entered name in the program...
   return (
-    <div className="summaryInfo" data-testid="summary-info">
-      <div className="info box">
+    <div className="flex justify-center items-center" data-testid="summary-info">
+      <div>
         {/* <h2>Your Name, </h2> */}
-        <h2 className="highlighted text-2xl" data-testid="score-label">
-          YOUR SCORE:
-        </h2>
-        <h2 className="score text-7xl" data-testid="score">
-          {totalScore}/{quizData.length}
-        </h2>
+        <p className="text bg-secondary text-font sm:text-xl px-2 py-2 m-2 mr-2 md:mr-10 uppercase sm:bg-tertiary sm:text-primary" data-testid="score-label">
+           Your score:
+        </p>
+        <p className="text-sm sm:text-xl text-font px-5" data-testid="score">
+          <span className="text-5xl sm:text-7xl">{totalScore}</span>/{quizData.length}
+        </p>
       </div>
-      <div className="summary-icon box">
-        <img src={getIcon()} alt="" width="200" height="200" />
+      <div>
+        <img src={getIcon()} alt="Score Brain" width="170" />
       </div>
     </div>
   );

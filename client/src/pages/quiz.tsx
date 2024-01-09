@@ -73,7 +73,7 @@ const Quiz: React.FC = () => {
     }
   }, [data]);
 
-  const handleAnswerChange = (answer: string) => {
+  /*   const handleAnswerChange = (answer: string) => {
     const updatedQuestions = [...triviaQuestions];
 
     updatedQuestions[questionIndex] = {
@@ -85,14 +85,24 @@ const Quiz: React.FC = () => {
     setAnswered(answer);
     updateTriviaQuestions(updatedQuestions);
     console.log(answer, updatedQuestions);
-  };
+  }; */
 
   const handleAnswerSelection = (answer: string) => {
-    triviaQuestions[questionIndex].answered = answer;
+    /*  triviaQuestions[questionIndex].answered = answer;
     setAnswered(answer);
     triviaQuestions[questionIndex].correct_answer === answer
       ? (triviaQuestions[questionIndex].value = 1)
-      : (triviaQuestions[questionIndex].value = 0);
+      : (triviaQuestions[questionIndex].value = 0); */
+    const updatedQuestions = [...triviaQuestions];
+
+    updatedQuestions[questionIndex] = {
+      ...updatedQuestions[questionIndex],
+      answered: answer,
+      value: updatedQuestions[questionIndex].correct_answer === answer ? 1 : 0,
+    };
+
+    setAnswered(answer);
+    updateTriviaQuestions(updatedQuestions);
     setResetTimer(true);
   };
 

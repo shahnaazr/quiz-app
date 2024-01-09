@@ -30,7 +30,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <h1 className="text-center text-3xl md:text-6xl  py-10">Quiz Night</h1>
+      <h1 className="text-center text-primary text-3xl md:text-6xl py-10">Quiz Night</h1>
       <form>
         <label>
         <h3 className="text-center mb-4 text-primary">Choose category:</h3>

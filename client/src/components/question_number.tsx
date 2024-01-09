@@ -7,7 +7,7 @@ type QuestionNumberProps = {
 };
 
 const QuestionNumber: React.FC<QuestionNumberProps> = ({ questionIndex, totalNumberOfQuestions }) => {
-  return <div  className="translate-y-6 flex items-center justify-center w-24 h-24 text-lg py-10 text-font bg-background border border-primary rounded-full shadow-gold"><p><span className='text-4xl'>{questionIndex + 1}</span>/{totalNumberOfQuestions}</p></div>;
+  return <div  className="translate-y-6 flex items-center justify-center w-16 h-16 sm:w-28 sm:h-28 sm:text-lg  text-font bg-background border border-primary rounded-full shadow-gold"><p><span className='text-2xl sm:text-4xl'>{questionIndex + 1}</span>/{totalNumberOfQuestions}</p></div>;
 };
 
 export default QuestionNumber;

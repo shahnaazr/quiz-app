@@ -8,7 +8,7 @@ type ImageProps = {
 const Image: React.FC<ImageProps> = ({ imageUrl }) => {
   return (
     <div className="">
-      {imageUrl && <img className="" src={imageUrl}  alt="Thinking brain" width={130} />}
+      {imageUrl && <img className="w-20 sm:w-28" src={imageUrl}  alt="Thinking brain" />}
     </div>)
 };
 

@@ -18,9 +18,9 @@ const NextButton: React.FC<NextButtonProps> = ({ questionIndex, totalNumberOfQue
   return (
     <div className='flex justify-end pb-6 pr-2'>
       {questionIndex < totalNumberOfQuestions - 1 ? (
-        <button className="text-lg px-7 py-3 mt-3 bg-secondary hover:bg-secondaryHover hover:text-tertiary"  onClick={handleNextQuestion} disabled={!answered}> next »</button>
+        <button className="text-lg px-7 py-3 mt-3 border border-primary text-primary hover:bg-secondaryHover hover:text-tertiary"  onClick={handleNextQuestion} disabled={!answered}> next »</button>
       ) : (
-        <button className="text-lg px-7 py-3 mt-3  bg-secondary hover:bg-secondaryHover  hover:text-tertiary" onClick={handleFinishQuiz} disabled={!answered}>finish »</button>
+        <button className="text-lg px-7 py-3 mt-3 border border-primary text-primary hover:bg-secondaryHover hover:text-tertiary" onClick={handleFinishQuiz} disabled={!answered}>finish »</button>
       )}
     </div>
   );

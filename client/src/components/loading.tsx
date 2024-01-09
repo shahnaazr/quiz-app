@@ -4,9 +4,9 @@ interface LoadingProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Loading = ({ caption = "Loading" }: LoadingProps) => {
   return (
-    <div className="flex justify-center my-4">
+    <div className="flex h-screen justify-center items-center my-4">
       <figure>
-        <div className="mb-4 text-warning">
+        <div className="mb-4 text-primary">
           <svg
             className="mx-auto animate-spin"
             data-testid="svg"

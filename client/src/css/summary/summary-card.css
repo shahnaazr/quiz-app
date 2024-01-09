@@ -1,0 +1,25 @@
+:root {
+  --blueBG: #171c49;
+  --pinkBG: #8d3478;
+  --yellowTXT: #f3f2c0;
+  --whiteTXT: #ffffff;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 6em;
+  margin: 15px;
+}
+
+.card-question {
+  color: var(--whiteTXT);
+}
+.card-answer {
+  color: var(--yellowTXT);
+}
+
+.user-answer {
+  font-weight: bold;
+}

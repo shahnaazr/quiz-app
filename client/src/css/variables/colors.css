@@ -1,0 +1,13 @@
+:root {
+  --primary: #f3f2c0;
+  --secondary: #8d3478;
+  --accent: #171c49;
+  --tertiary: #191E4D;
+  --neutral: #ffffff;
+  --info:  #f3f2c0;
+  --success: #049462;
+  --warning: #aba304;
+  --error: #c21111;
+  --danger: #c21111;
+  --current: "currentColor";
+}

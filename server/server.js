@@ -1,8 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const axios = require("axios");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "OK" });
@@ -36,15 +39,17 @@ app.get("/trivia", async (req, res) => {
       params: {
         amount: amount || 10,
         type: type || "multiple",
-        difficulty: difficulty || "medium",
+        difficulty: difficulty || "easy",
         category: category || "9",
       },
     });
 
     res.json(response.data);
   } catch (error) {
-    console.error("Error fetching trivia questions:", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    if (!error.message.includes("429")) {
+      console.error("Error fetching trivia questions:", error.message);
+      res.status(500).json({ error: error.message });
+    }
   }
 });
 

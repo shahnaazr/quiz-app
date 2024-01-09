@@ -3,7 +3,7 @@ import React, { createContext, useState, ReactNode } from "react";
 import { TriviaParams } from "../types/TriviaParams";
 import { ExtendedQuizQuestion } from "../types/QuizQuestion";
 
-interface TriviaContextProps {
+export interface TriviaContextProps {
   triviaParams: TriviaParams;
   updateTriviaParams: (newParams: TriviaParams) => void;
   triviaQuestions: ExtendedQuizQuestion[];
@@ -25,7 +25,9 @@ const TriviaProvider: React.FC<TriviaProviderProps> = ({ children }) => {
     category: "9",
   });
 
-  const [triviaQuestions, setTriviaQuestions] = useState<ExtendedQuizQuestion[]>([]);
+  const [triviaQuestions, setTriviaQuestions] = useState<
+    ExtendedQuizQuestion[]
+  >([]);
 
   const updateTriviaParams = (newParams: TriviaParams) => {
     setTriviaParams((prevParams) => ({ ...prevParams, ...newParams }));
@@ -42,7 +44,11 @@ const TriviaProvider: React.FC<TriviaProviderProps> = ({ children }) => {
     updateTriviaQuestions,
   };
 
-  return <TriviaContext.Provider value={contextValue}>{children}</TriviaContext.Provider>;
+  return (
+    <TriviaContext.Provider value={contextValue}>
+      {children}
+    </TriviaContext.Provider>
+  );
 };
 
 export { TriviaProvider, TriviaContext };

@@ -52,7 +52,7 @@ const Home: React.FC = () => {
           </select>
         </label>
       
-        <button type="button" className="block text-lg mb-5 mx-auto p-3 lg:p-4 bg-secondary hover:bg-secondaryHover" onClick={handleStartQuiz} data-testid="start-btn"> start quiz » 
+        <button type="button" className="block text-lg mb-5 mx-auto p-3 lg:p-4 bg-secondary hover:bg-secondaryHover hover:text-tertiary" onClick={handleStartQuiz} data-testid="start-btn"> start quiz » 
         </button>
 
       </form>

@@ -23,6 +23,7 @@ const TriviaProvider: React.FC<TriviaProviderProps> = ({ children }) => {
     type: "multiple",
     difficulty: "easy",
     category: "9",
+    categoryName: "General Knowledge",
   });
 
   const [triviaQuestions, setTriviaQuestions] = useState<

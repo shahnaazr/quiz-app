@@ -3,4 +3,5 @@ export interface TriviaParams {
   type?: string;
   difficulty: string;
   category: string;
+  categoryName: string;
 }

@@ -11,12 +11,20 @@ const Home: React.FC = () => {
   const { updateTriviaParams, triviaParams } = triviaContext;
 
   const [category, setCategory] = useState(triviaParams.category);
+  const [categoryName, setCategoryName] = useState(triviaParams.categoryName);
   const [difficulty, setDifficulty] = useState(triviaParams.difficulty);
 
   const navigate = useNavigate();
 
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedOption = e.target.options[e.target.selectedIndex];
+    const selectedLabel = selectedOption.text;
+    setCategory(e.target.value);
+    setCategoryName(selectedLabel);
+  };
+
   const handleStartQuiz = () => {
-    updateTriviaParams?.({ category, difficulty });
+    updateTriviaParams?.({ category, categoryName, difficulty });
     navigate("/quiz");
   };
 

@@ -107,21 +107,23 @@ const Quiz: React.FC = () => {
       {data && (
         <div>     
           <Category category={triviaQuestions[questionIndex]?.category}/>
-          <div className="flex justify-between">
-          {{selectedImage} &&<Image imageUrl={selectedImage}/>}
-           <QuestionNumber questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length}/>
+          <div className="flex justify-between content-end items-end">
+            {{selectedImage} &&<Image imageUrl={selectedImage}/>}
+            <QuestionNumber questionIndex={questionIndex} totalNumberOfQuestions={triviaQuestions.length}/>
+            {questionIndex < triviaQuestions.length && (
+              <Timer onTimeout={handleClick} resetTimer={resetTimer} />
+            )}
           </div>
-          {questionIndex < triviaQuestions.length && (
-            <Timer onTimeout={handleClick} resetTimer={resetTimer} />
-          )}
-          <Question question={triviaQuestions[questionIndex]?.question}/>
-          <AnswerOptions answers={triviaQuestions[questionIndex]?.answers} handleAnswerSelection={handleAnswerSelection}/>
-          <NextButton 
-            questionIndex={questionIndex} 
-            totalNumberOfQuestions={triviaQuestions.length} 
-            handleNextQuestion={handleClick} 
-            answered={!answered}
-            />
+          <div className="bg-secondary rounded-2xl ">
+            <Question question={triviaQuestions[questionIndex]?.question}/>
+            <AnswerOptions answers={triviaQuestions[questionIndex]?.answers} handleAnswerSelection={handleAnswerSelection}/>
+        </div>
+        <NextButton 
+              questionIndex={questionIndex} 
+              totalNumberOfQuestions={triviaQuestions.length} 
+              handleNextQuestion={handleClick} 
+              answered={!answered}
+              />
         </div>
       )}
     </>

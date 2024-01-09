@@ -14,7 +14,7 @@ const Timer: React.FC<TimerProps> = ({ onTimeout, resetTimer }) => {
         setTimer(timer - 1);
       } else {
         onTimeout();
-        setTimer(5); // Reset timer for the next question
+        setTimer(30); // Reset timer for the next question
       }
     };
 

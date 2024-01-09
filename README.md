@@ -68,3 +68,5 @@ Run the above command and test api routes in your browser.
   {"id": 32, "name": "Entertainment: Cartoon & Animations"}
 ]
 ```
+=======
+# quiz app

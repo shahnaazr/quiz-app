@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { TriviaContext } from "../contexts/TriviaContext";
 import Categories from "../data/categories.json";
+import brainLeft from "../assets/images/home/brain-left.svg"
+import brainRight from "../assets/images/home/brain-right.svg"
 
 const Home: React.FC = () => {
   const triviaContext = useContext(TriviaContext)!;
@@ -28,11 +30,11 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <h1>Home Page</h1>
+      <h1 className="text-center text-4xl md:text-7xl  py-10">Quiz Night</h1>
       <form>
         <label>
-          Category:
-          <select value={category} onChange={handleSelectChange}>
+        <h3 className="text-center mb-4 text-primary">Choose category:</h3>
+          <select className="block mx-auto mb-10" value={category} onChange={(e) => setCategory(e.target.value)}>
             {Categories.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name}
@@ -40,20 +42,24 @@ const Home: React.FC = () => {
             ))}
           </select>
         </label>
-        <br />
+        
         <label>
-          Difficulty:
-          <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+        <h3 className="text-center mb-4 text-primary">Choose difficulty:</h3>
+          <select className="block mx-auto mb-14" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
           </select>
         </label>
-        <br />
-        <button type="button" onClick={handleStartQuiz} data-testid="start-btn">
-          Start Quiz
+      
+        <button type="button" className="block text-xl lg:text-2xl mb-5 mx-auto p-4 lg:p-6 bg-secondary hover:bg-secondaryHover" onClick={handleStartQuiz} data-testid="start-btn"> start quiz » 
         </button>
+
       </form>
+      <div className="flex justify-between">
+        <img className="w-28 md:w-52" src={brainLeft} alt="Smiling brain" /> 
+        <img className="w-24 md:w-48" src={brainRight} alt="Thinking brain" width={93}/>
+      </div>
     </>
   );
 };

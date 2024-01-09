@@ -29,11 +29,13 @@ export const SummaryInfo: React.FC<MyComponentProps> = ({ quizData }) => {
 
   //todo: Replace your name with the entered name in the program...
   return (
-    <div className="summaryInfo">
+    <div className="summaryInfo" data-testid="summary-info">
       <div className="info box">
         {/* <h2>Your Name, </h2> */}
-        <h2 className="highlighted text-2xl">YOU SCORE: </h2>
-        <h2 className="score text-7xl">
+        <h2 className="highlighted text-2xl" data-testid="score-label">
+          YOUR SCORE:
+        </h2>
+        <h2 className="score text-7xl" data-testid="score">
           {totalScore}/{quizData.length}
         </h2>
       </div>

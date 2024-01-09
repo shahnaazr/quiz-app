@@ -14,7 +14,7 @@ export const Summary: React.FC = () => {
   }
 
   return (
-    <div className="summary">
+    <div className="summary" data-testid="summary">
       <h1 className="text-center text-7xl py-10">Summary</h1>
       <br />
       <div className="summary-info">

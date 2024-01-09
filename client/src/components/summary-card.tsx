@@ -13,7 +13,7 @@ export const Card: React.FC<CardProps> = ({ quizData, index }) => {
   }
 
   return (
-    <div className="card">
+    <div className="card" data-testid="question">
       <div className="card-question">
         <h2>
           {index + 1}. {quizData.question}

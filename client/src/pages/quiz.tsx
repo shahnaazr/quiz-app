@@ -132,7 +132,6 @@ const Quiz: React.FC = () => {
 
   return (
     <>
-      <h1>Quiz Page</h1>
       {loading && <Loading caption="Loading Questions" />}
       {(error || errorMessage) && (
         <Alert
@@ -143,17 +142,17 @@ const Quiz: React.FC = () => {
       {data && (
         <div>
           <Category category={triviaQuestions[questionIndex]?.category} />
-          <div className="flex justify-between content-end items-end">
+          <div className="flex justify-between content-end items-end px-5">
             {{ selectedImage } && <Image imageUrl={selectedImage} />}
             <QuestionNumber
               questionIndex={questionIndex}
               totalNumberOfQuestions={triviaQuestions.length}
             />
-          </div>
-          {questionIndex < triviaQuestions.length && (
+            {questionIndex < triviaQuestions.length && (
             <Timer onTimeout={handleClick} resetTimer={resetTimer} />
           )}
-          <div className="bg-secondary rounded-2xl ">
+          </div>
+          <div className="bg-secondary rounded-2xl">
           <Question question={triviaQuestions[questionIndex]?.question} />
           <AnswerOptions
             answers={triviaQuestions[questionIndex]?.answers}

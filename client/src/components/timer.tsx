@@ -32,9 +32,9 @@ const Timer: React.FC<TimerProps> = ({ onTimeout, resetTimer }) => {
 
   return ( 
     <>
-    <div className="text-right">
-    <p>Time left:</p> 
-    <p><span>{timer}</span> sec</p>
+    <div className="text-right pb-2">
+    <p className="uppercase text-xs text-primary">Time left:</p> 
+    <p className="text-primary uppercase"><span>{timer}</span> sec</p>
     </div>
     </>
   )

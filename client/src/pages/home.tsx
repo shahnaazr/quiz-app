@@ -57,8 +57,8 @@ const Home: React.FC = () => {
 
       </form>
       <div className="flex justify-between">
-        <img className="w-28 md:w-52" src={brainLeft} alt="Smiling brain" /> 
-        <img className="w-24 md:w-48" src={brainRight} alt="Thinking brain" width={93}/>
+        <img className="w-28 md:w-40" src={brainLeft} alt="Smiling brain" /> 
+        <img className="w-28 md:w-40" src={brainRight} alt="Thinking brain" />
       </div>
     </>
   );

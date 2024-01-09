@@ -7,7 +7,7 @@ type ImageProps = {
 
 const Image: React.FC<ImageProps> = ({ imageUrl }) => {
   return (
-    <div className="flex justify-between">
+    <div className="">
       {imageUrl && <img className="" src={imageUrl}  alt="Thinking brain" width={130} />}
     </div>)
 };
